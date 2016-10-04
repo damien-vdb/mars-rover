@@ -2,7 +2,7 @@ package com.github.damienvdb06.marsrover;
 
 public class Rover {
 
-	private Direction direction;
+	Direction direction;
 	int y;
 	int x;
 
@@ -18,6 +18,10 @@ public class Rover {
 
 	public void backward() {
 		direction.backward(this);
+	}
+
+	public void turnLeft() {
+		direction = Direction.WEST;
 	}
 
 }
