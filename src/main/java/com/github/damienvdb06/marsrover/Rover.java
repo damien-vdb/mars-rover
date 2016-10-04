@@ -13,7 +13,7 @@ public class Rover {
 	}
 
 	public void forward() {
-		this.y -= 1;
+		direction.forward(this);
 	}
 
 }
