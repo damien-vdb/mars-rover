@@ -42,5 +42,13 @@ public class RoverTest {
 		assertEquals(STARTING_X + this.expectedX, sut.x);
 		assertEquals(STARTING_Y + this.expectedY, sut.y);
 	}
+	
+	@Test
+	public void backward_should_go_in_the_opposing_direction() {
+		Rover sut = new Rover(STARTING_X, STARTING_Y, direction);
+		sut.backward();
+		assertEquals(STARTING_X - this.expectedX, sut.x);
+		assertEquals(STARTING_Y - this.expectedY, sut.y);
+	}
 
 }

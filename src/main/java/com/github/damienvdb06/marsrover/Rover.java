@@ -16,4 +16,8 @@ public class Rover {
 		direction.forward(this);
 	}
 
+	public void backward() {
+		direction.backward(this);
+	}
+
 }
