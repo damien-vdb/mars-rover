@@ -21,7 +21,7 @@ public class RoverDirectionTest {
 		assertRight(Direction.SOUTH, Direction.WEST);
 		assertRight(Direction.EAST, Direction.SOUTH);
 	}
-
+	
 	private void assertRight(Direction initial, Direction expected) {
 		Rover sut = new Rover(5, 5, initial);
 		sut.turnRight();

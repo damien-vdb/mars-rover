@@ -3,21 +3,20 @@ package com.github.damienvdb06.marsrover;
 public class Rover {
 
 	Direction direction;
-	int y;
-	int x;
+	Position position;
 
 	public Rover(int x, int y, Direction direction) {
-		this.x = x;
-		this.y = y;
+		this.position = new Position();
+		this.position.set(x, y);
 		this.direction = direction;
 	}
 
 	public void forward() {
-		direction.forward(this);
+		direction.forward(this.position);
 	}
 
 	public void backward() {
-		direction.backward(this);
+		direction.backward(this.position);
 	}
 
 	public void turnLeft() {

@@ -6,9 +6,10 @@ import java.util.Map;
 public enum Direction {
 
 	NORTH {
+
 		@Override
-		public void forward(Rover rover) {
-			rover.y -= 1;
+		public void forward(Position position) {
+			position.setY(position.y - 1);
 		}
 
 		@Override
@@ -18,9 +19,10 @@ public enum Direction {
 
 	},
 	SOUTH {
+		
 		@Override
-		public void forward(Rover rover) {
-			rover.y += 1;
+		public void forward(Position position) {
+			position.setY(position.y + 1);
 		}
 
 		@Override
@@ -30,9 +32,10 @@ public enum Direction {
 
 	},
 	EAST {
+		
 		@Override
-		public void forward(Rover rover) {
-			rover.x += 1;
+		public void forward(Position position) {
+			position.setX(position.x + 1);
 		}
 
 		@Override
@@ -42,9 +45,10 @@ public enum Direction {
 
 	},
 	WEST {
+
 		@Override
-		public void forward(Rover rover) {
-			rover.x -= 1;
+		public void forward(Position position) {
+			position.setX(position.x - 1);
 		}
 
 		@Override
@@ -62,10 +66,10 @@ public enum Direction {
 		return opposites.get(this);
 	}
 
-	public abstract void forward(Rover rover);
+	public abstract void forward(Position position);
 
-	public void backward(Rover rover) {
-		this.opposite().forward(rover);
+	public void backward(Position position) {
+		this.opposite().forward(position);
 	}
 
 	public abstract Direction left();
