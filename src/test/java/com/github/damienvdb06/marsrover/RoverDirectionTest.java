@@ -7,10 +7,17 @@ import org.junit.Test;
 public class RoverDirectionTest {
 	
 	@Test
-	public void turn_left_from_north_is_west() {
-		Rover sut = new Rover(5, 5, Direction.NORTH);
-		sut.turnLeft();
-		assertEquals(Direction.WEST, sut.direction);
-	
+	public void turn_left_should_change_rover_direction() {
+		assertLeft(Direction.NORTH, Direction.WEST);
+		assertLeft(Direction.WEST, Direction.SOUTH);
+		assertLeft(Direction.SOUTH, Direction.EAST);
+		assertLeft(Direction.EAST, Direction.NORTH);
 	}
+
+	private void assertLeft(Direction initial, Direction expected) {
+		Rover sut = new Rover(5, 5, initial);
+		sut.turnLeft();
+		assertEquals(expected, sut.direction);
+	}
+	
 }

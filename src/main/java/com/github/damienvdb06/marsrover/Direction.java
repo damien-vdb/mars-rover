@@ -12,6 +12,11 @@ public enum Direction {
 		public void backward(Rover rover) {
 			SOUTH.forward(rover);
 		}
+
+		@Override
+		public Direction left() {
+			return WEST;
+		}
 	},
 	SOUTH {
 		@Override
@@ -22,6 +27,11 @@ public enum Direction {
 		@Override
 		public void backward(Rover rover) {
 			NORTH.forward(rover);
+		}
+
+		@Override
+		public Direction left() {
+			return EAST;
 		}
 	},
 	EAST {
@@ -34,6 +44,11 @@ public enum Direction {
 		public void backward(Rover rover) {
 			WEST.forward(rover);
 		}
+
+		@Override
+		public Direction left() {
+			return NORTH;
+		}
 	},
 	WEST {
 		@Override
@@ -45,10 +60,16 @@ public enum Direction {
 		public void backward(Rover rover) {
 			EAST.forward(rover);
 		}
+
+		@Override
+		public Direction left() {
+			return SOUTH;
+		}
 	};
-	
 
 	public abstract void forward(Rover rover);
 
 	public abstract void backward(Rover rover);
+
+	public abstract Direction left();
 }
