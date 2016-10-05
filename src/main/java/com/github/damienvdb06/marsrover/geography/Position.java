@@ -16,6 +16,8 @@ public class Position {
 
 	@Override
 	public boolean equals(Object o) {
+		if (o == null)
+			return false;
 		if (this == o) {
 			return true;
 		}
@@ -34,10 +36,4 @@ public class Position {
 		result = 31 * result + x;
 		return result;
 	}
-
-    boolean conflictsWith(Obstacle obstacle) {
-        if (obstacle == null)
-			return false;
-        return equals(obstacle);
-    }
 }
