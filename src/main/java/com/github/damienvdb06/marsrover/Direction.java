@@ -1,7 +1,11 @@
+
 package com.github.damienvdb06.marsrover;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.github.damienvdb06.marsrover.geography.Planet;
+import com.github.damienvdb06.marsrover.geography.Position;
 
 public enum Direction {
 
@@ -19,7 +23,7 @@ public enum Direction {
 
 	},
 	SOUTH {
-		
+
 		@Override
 		public Position forward(Planet planet, Position position) {
 			return planet.at(position.x, position.y + 1);
@@ -32,7 +36,7 @@ public enum Direction {
 
 	},
 	EAST {
-		
+
 		@Override
 		public Position forward(Planet planet, Position position) {
 			return planet.at(position.x + 1, position.y);

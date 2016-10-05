@@ -1,18 +1,22 @@
 package com.github.damienvdb06.marsrover;
 
+import com.github.damienvdb06.marsrover.geography.Planet;
+import com.github.damienvdb06.marsrover.geography.Position;
+
 public class Rover {
 
 	Direction direction;
 	Position position;
 	private Planet planet;
 
-	public Rover(int x, int y, Direction direction) {
-		this(Planet.big(), x, y, direction);
+	public static Rover create(int x, int y, Direction direction) {
+        Planet planet = Planet.big();
+        return new Rover(planet, planet.at(x, y), direction);
 	}
 
-	public Rover(Planet planet, int x, int y, Direction direction) {
+	public Rover(Planet planet, Position position, Direction direction) {
 		this.planet = planet;
-		this.position = new Position(x, y);
+		this.position = position;
 		this.direction = direction;
 	}
 

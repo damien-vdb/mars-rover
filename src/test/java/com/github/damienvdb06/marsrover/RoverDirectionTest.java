@@ -23,13 +23,13 @@ public class RoverDirectionTest {
 	}
 	
 	private void assertRight(Direction initial, Direction expected) {
-		Rover sut = new Rover(5, 5, initial);
+		Rover sut = Rover.create(5, 5, initial);
 		sut.turnRight();
 		assertEquals(expected, sut.direction);
 	}
 
 	private void assertLeft(Direction initial, Direction expected) {
-		Rover sut = new Rover(5, 5, initial);
+		Rover sut = Rover.create(5, 5, initial);
 		sut.turnLeft();
 		assertEquals(expected, sut.direction);
 	}

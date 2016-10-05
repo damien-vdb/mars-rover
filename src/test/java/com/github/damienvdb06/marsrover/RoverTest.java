@@ -37,7 +37,7 @@ public class RoverTest {
 
 	@Test
 	public void forward_should_go_in_the_facing_direction() {
-		Rover sut = new Rover(STARTING_X, STARTING_Y, direction);
+		Rover sut = Rover.create(STARTING_X, STARTING_Y, direction);
 		sut.forward();
 		assertEquals(STARTING_X + this.expectedX, sut.position.x);
 		assertEquals(STARTING_Y + this.expectedY, sut.position.y);
@@ -45,7 +45,7 @@ public class RoverTest {
 	
 	@Test
 	public void backward_should_go_in_the_opposing_direction() {
-		Rover sut = new Rover(STARTING_X, STARTING_Y, direction);
+		Rover sut = Rover.create(STARTING_X, STARTING_Y, direction);
 		sut.backward();
 		assertEquals(STARTING_X - this.expectedX, sut.position.x);
 		assertEquals(STARTING_Y - this.expectedY, sut.position.y);

@@ -1,5 +1,6 @@
 package com.github.damienvdb06.marsrover;
 
+import com.github.damienvdb06.marsrover.geography.Planet;
 import org.junit.Test;
 
 public class RoverObstaclesTest {
@@ -9,7 +10,7 @@ public class RoverObstaclesTest {
 		Planet planet = new Planet(10);
 		planet.setObstacle(5, 4);
 		
-		Rover sut = new Rover(planet, 5, 5, Direction.NORTH);
+		Rover sut = new Rover(planet, planet.at(5, 5), Direction.NORTH);
 		sut.forward();
 	}
 
@@ -18,7 +19,7 @@ public class RoverObstaclesTest {
 		Planet planet = new Planet(10);
 		planet.setObstacle(6, 5);
 		
-		Rover sut = new Rover(planet, 5, 5, Direction.EAST);
+		Rover sut = new Rover(planet, planet.at(5, 5), Direction.EAST);
 		sut.forward();
 	}
 }
