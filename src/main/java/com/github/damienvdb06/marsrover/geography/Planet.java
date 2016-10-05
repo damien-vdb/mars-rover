@@ -1,20 +1,17 @@
 
 package com.github.damienvdb06.marsrover.geography;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import com.github.damienvdb06.marsrover.ImpossibleMoveException;
 
 public class Planet {
 
 	private int size = Integer.MAX_VALUE;
 
-	private Set<Obstacle> obstacles;
+	private Obstacles obstacles;
 
 	public Planet(int size) {
 		this.size = size;
-		this.obstacles = new HashSet();
+		this.obstacles = new Obstacles();
 	}
 
 	public static Planet big() {
@@ -31,7 +28,7 @@ public class Planet {
 
 	public Position at(int x, int y) {
 		Position target = generatePosition(x, y);
-        if(obstacles.contains(target))
+        if(obstacles.block(target))
             throw new ImpossibleMoveException(target);
 		return target;
 	}
