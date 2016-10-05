@@ -14,15 +14,11 @@ public class Planet {
 		this.obstacles = new Obstacles();
 	}
 
-	public static Planet big() {
-		return new Planet(Integer.MAX_VALUE);
+    public void putObstacle(Obstacle obstacle) {
+		this.obstacles.put(obstacle);
 	}
 
-	public void putObstacle(Obstacle obstacle) {
-		this.obstacles.add(obstacle);
-	}
-
-	int wrapSincePlanetIsRound(int coordinate) {
+	private int wrapSincePlanetIsRound(int coordinate) {
 		return Math.floorMod(coordinate, size);
 	}
 

@@ -12,7 +12,7 @@ public class Obstacles {
 		this.obstacles = new HashSet<Obstacle>();
 	}
 
-	public void add(Obstacle obstacle) {
+	public void put(Obstacle obstacle) {
 		this.obstacles.add(obstacle);
 	}
 

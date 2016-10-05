@@ -10,7 +10,7 @@ public class Rover {
 	private Planet planet;
 
 	public static Rover create(int x, int y, Direction direction) {
-        Planet planet = Planet.big();
+        Planet planet = new Planet(Integer.MAX_VALUE);
         return new Rover(planet, planet.at(x, y), direction);
 	}
 
