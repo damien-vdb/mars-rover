@@ -7,7 +7,7 @@ public class Planet {
 
 	private int size = Integer.MAX_VALUE;
 
-	private Position obstacle;
+	private Obstacle obstacle;
 
 	public Planet(int size) {
 		this.size = size;
@@ -17,24 +17,18 @@ public class Planet {
 		return new Planet(Integer.MAX_VALUE);
 	}
 
-	public void setObstacle(int x, int y) {
-		this.obstacle = new Position(x, y);
+	public void setObstacle(Obstacle obstacle) {
+		this.obstacle = obstacle;
 	}
 
-	public boolean isPositionAvailable(Position target) {
-        if (obstacle == null)
-			return true;
-		return !obstacle.equals(target);
-	}
-
-	int wrapSincePlanetIsRound(int coordinate) {
+    int wrapSincePlanetIsRound(int coordinate) {
 		return Math.floorMod(coordinate, size);
 	}
 
 	public Position at(int x, int y) {
         Position target = generatePosition(x, y);
-        boolean ok = isPositionAvailable(target);
-		if (!ok) {
+        boolean conflict = target.conflictsWith(obstacle);
+		if (conflict) {
 			throw new ImpossibleMoveException();
 		}
 		return target;

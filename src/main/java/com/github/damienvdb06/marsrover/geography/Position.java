@@ -19,10 +19,6 @@ public class Position {
 		if (this == o) {
 			return true;
 		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-
 		Position position = (Position) o;
 
 		if (y != position.y) {
@@ -38,4 +34,10 @@ public class Position {
 		result = 31 * result + x;
 		return result;
 	}
+
+    boolean conflictsWith(Obstacle obstacle) {
+        if (obstacle == null)
+			return false;
+        return equals(obstacle);
+    }
 }
