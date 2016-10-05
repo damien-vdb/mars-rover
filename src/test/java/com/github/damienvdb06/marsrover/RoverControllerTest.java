@@ -52,4 +52,11 @@ public class RoverControllerTest {
         order.verify(rover).turnLeft();
         order.verify(rover).turnRight();
     }
+
+    @Test
+    public void applying_command_should_not_propagate_blocking_error_when_obstacle_is_met() {
+        Mockito.doThrow(ImpossibleMoveException.class).when(rover).forward();
+
+        Command.FORWARD.apply(rover);
+    }
 }

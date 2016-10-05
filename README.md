@@ -14,3 +14,5 @@ The rover receives a character array of commands.
 
 All commits were not squashed, in order to show the emerging solution, and sometimes
 reverting chosen solutions.
+
+Printing positions and such were not asked in the subject, but a simple println does not hurt :)

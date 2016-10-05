@@ -39,4 +39,7 @@ public class Rover {
         direction = direction.right();
     }
 
+    public void printPosition() {
+        System.out.printf("Rover is now at %s\n", this.position.toString());
+    }
 }
