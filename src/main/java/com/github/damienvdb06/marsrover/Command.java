@@ -15,6 +15,20 @@ public enum Command {
 		public void apply(Rover rover) {
 			rover.backward();
 		}
+	}, //
+	LEFT('l') {
+
+		@Override
+		public void apply(Rover rover) {
+			rover.turnLeft();
+		}
+	}, //
+	RIGHT('r') {
+
+		@Override
+		public void apply(Rover rover) {
+			rover.turnRight();
+		}
 	};
 
 	private char character;
@@ -24,12 +38,12 @@ public enum Command {
 	}
 
 	public static Command find(char input) {
-		for(Command command : Command.values()) {
-            if(command.character == input) {
-                return command;
-            }
-        }
-        throw new IllegalArgumentException(String.format("Character %c not recognized", input));
+		for (Command command : Command.values()) {
+			if (command.character == input) {
+				return command;
+			}
+		}
+		throw new IllegalArgumentException(String.format("Character %c not recognized", input));
 	}
 
 	public abstract void apply(Rover rover);

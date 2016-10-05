@@ -27,4 +27,15 @@ public class RoverControllerTest {
         Mockito.verify(rover).backward();
     }
 
+    @Test
+    public void l_should_turn_left() {
+        controller.command('l');
+        Mockito.verify(rover).turnLeft();
+    }
+
+    @Test
+    public void r_should_turn_right() {
+        controller.command('r');
+        Mockito.verify(rover).turnRight();
+    }
 }
