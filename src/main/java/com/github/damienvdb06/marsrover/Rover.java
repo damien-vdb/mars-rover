@@ -6,8 +6,11 @@ public class Rover {
 	Position position;
 
 	public Rover(int x, int y, Direction direction) {
-		this.position = new Position();
-		this.position.set(x, y);
+		this(Planet.big(), x, y, direction);
+	}
+
+	public Rover(Planet planet, int x, int y, Direction direction) {
+		this.position = new Position(planet, x, y);
 		this.direction = direction;
 	}
 
