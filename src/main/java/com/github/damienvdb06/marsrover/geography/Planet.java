@@ -29,7 +29,7 @@ public class Planet {
         Position target = generatePosition(x, y);
         boolean conflict = target.conflictsWith(obstacle);
 		if (conflict) {
-			throw new ImpossibleMoveException();
+			throw new ImpossibleMoveException(obstacle);
 		}
 		return target;
 	}
