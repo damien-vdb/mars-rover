@@ -5,11 +5,9 @@ import com.github.damienvdb06.marsrover.ImpossibleMoveException;
 
 public class Planet {
 
-	int size = Integer.MAX_VALUE;
+	private int size = Integer.MAX_VALUE;
 
-	int obstacleX = -1;
-
-	int obstacleY = -1;
+	private Position obstacle;
 
 	public Planet(int size) {
 		this.size = size;
@@ -20,26 +18,32 @@ public class Planet {
 	}
 
 	public void setObstacle(int x, int y) {
-		obstacleX = x;
-		obstacleY = y;
+		this.obstacle = new Position(x, y);
 	}
 
-	public boolean isPositionAvailable(int x, int y) {
-		return obstacleX != x || obstacleY != y;
+	public boolean isPositionAvailable(Position target) {
+        if (obstacle == null)
+			return true;
+		return !obstacle.equals(target);
 	}
 
-	int wrapSincePlanetIsRound(int i) {
-		return Math.floorMod(i, size);
+	int wrapSincePlanetIsRound(int coordinate) {
+		return Math.floorMod(coordinate, size);
 	}
 
 	public Position at(int x, int y) {
-		int nextX = wrapSincePlanetIsRound(x);
-		int nextY = wrapSincePlanetIsRound(y);
-		boolean ok = isPositionAvailable(nextX, nextY);
+        Position target = generatePosition(x, y);
+        boolean ok = isPositionAvailable(target);
 		if (!ok) {
 			throw new ImpossibleMoveException();
 		}
-		return new Position(nextX, nextY);
+		return target;
 	}
+
+    private Position generatePosition(int x, int y) {
+        int nextX = wrapSincePlanetIsRound(x);
+        int nextY = wrapSincePlanetIsRound(y);
+        return new Position(nextX, nextY);
+    }
 
 }
