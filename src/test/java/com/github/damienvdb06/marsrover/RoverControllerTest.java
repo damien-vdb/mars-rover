@@ -2,6 +2,7 @@ package com.github.damienvdb06.marsrover;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 public class RoverControllerTest {
@@ -37,5 +38,16 @@ public class RoverControllerTest {
     public void r_should_turn_right() {
         controller.command('r');
         Mockito.verify(rover).turnRight();
+    }
+
+    @Test
+    public void controller_should_handle_multiple_commands() {
+        controller.command("fblr");
+
+        InOrder order = Mockito.inOrder(rover);
+        order.verify(rover).forward();
+        order.verify(rover).backward();
+        order.verify(rover).turnLeft();
+        order.verify(rover).turnRight();
     }
 }

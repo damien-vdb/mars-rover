@@ -12,4 +12,10 @@ public class RoverController {
     public void command(char input) {
         Command.find(input).apply(rover);
     }
+
+    public void command(String commands) {
+        for(Character input : commands.toCharArray()) {
+            command(input);
+        }
+    }
 }
