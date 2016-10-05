@@ -1,3 +1,4 @@
+
 package com.github.damienvdb06.marsrover;
 
 import org.junit.Before;
@@ -8,6 +9,7 @@ import org.mockito.Mockito;
 public class RoverControllerTest {
 
     private RoverController controller;
+
     private Rover rover;
 
     @Before

@@ -2,49 +2,49 @@
 package com.github.damienvdb06.marsrover;
 
 public enum Command {
-	FORWARD('f') {
+    FORWARD('f') {
 
-		@Override
-		public void apply(Rover rover) {
-			rover.forward();
-		}
-	}, //
-	BACKWARD('b') {
+        @Override
+        public void apply(Rover rover) {
+            rover.forward();
+        }
+    }, //
+    BACKWARD('b') {
 
-		@Override
-		public void apply(Rover rover) {
-			rover.backward();
-		}
-	}, //
-	LEFT('l') {
+        @Override
+        public void apply(Rover rover) {
+            rover.backward();
+        }
+    }, //
+    LEFT('l') {
 
-		@Override
-		public void apply(Rover rover) {
-			rover.turnLeft();
-		}
-	}, //
-	RIGHT('r') {
+        @Override
+        public void apply(Rover rover) {
+            rover.turnLeft();
+        }
+    }, //
+    RIGHT('r') {
 
-		@Override
-		public void apply(Rover rover) {
-			rover.turnRight();
-		}
-	};
+        @Override
+        public void apply(Rover rover) {
+            rover.turnRight();
+        }
+    };
 
-	private char character;
+    private char character;
 
-	Command(char character) {
-		this.character = character;
-	}
+    Command(char character) {
+        this.character = character;
+    }
 
-	public static Command find(char input) {
-		for (Command command : Command.values()) {
-			if (command.character == input) {
-				return command;
-			}
-		}
-		throw new IllegalArgumentException(String.format("Character %c not recognized", input));
-	}
+    public static Command find(char input) {
+        for (Command command : Command.values()) {
+            if (command.character == input) {
+                return command;
+            }
+        }
+        throw new IllegalArgumentException(String.format("Character %c not recognized", input));
+    }
 
-	public abstract void apply(Rover rover);
+    public abstract void apply(Rover rover);
 }

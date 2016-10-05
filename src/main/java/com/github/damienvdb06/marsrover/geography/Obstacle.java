@@ -1,3 +1,4 @@
+
 package com.github.damienvdb06.marsrover.geography;
 
 public class Obstacle extends Position {

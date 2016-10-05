@@ -1,3 +1,4 @@
+
 package com.github.damienvdb06.marsrover;
 
 import com.github.damienvdb06.marsrover.geography.Position;

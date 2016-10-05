@@ -6,17 +6,17 @@ import java.util.Set;
 
 public class Obstacles {
 
-	private Set<Obstacle> obstacles;
+    private Set<Obstacle> obstacles;
 
-	public Obstacles() {
-		this.obstacles = new HashSet<Obstacle>();
-	}
+    public Obstacles() {
+        this.obstacles = new HashSet<Obstacle>();
+    }
 
-	public void put(Obstacle obstacle) {
-		this.obstacles.add(obstacle);
-	}
+    public void put(Obstacle obstacle) {
+        this.obstacles.add(obstacle);
+    }
 
-	public boolean block(Position target) {
-		return this.obstacles.contains(target);
-	}
+    public boolean block(Position target) {
+        return this.obstacles.contains(target);
+    }
 }
