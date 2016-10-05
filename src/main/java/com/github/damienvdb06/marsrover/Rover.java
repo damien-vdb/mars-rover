@@ -4,22 +4,24 @@ public class Rover {
 
 	Direction direction;
 	Position position;
+	private Planet planet;
 
 	public Rover(int x, int y, Direction direction) {
 		this(Planet.big(), x, y, direction);
 	}
 
 	public Rover(Planet planet, int x, int y, Direction direction) {
-		this.position = new Position(planet, x, y);
+		this.planet = planet;
+		this.position = new Position(x, y);
 		this.direction = direction;
 	}
 
 	public void forward() {
-		direction.forward(this.position);
+		this.position = direction.forward(this.planet, this.position);
 	}
 
 	public void backward() {
-		direction.backward(this.position);
+		this.position = direction.backward(this.planet, this.position);
 	}
 
 	public void turnLeft() {

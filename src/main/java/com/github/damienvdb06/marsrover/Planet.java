@@ -2,17 +2,17 @@ package com.github.damienvdb06.marsrover;
 
 public class Planet {
 
-	int size;
+	int size = Integer.MAX_VALUE;
 	int obstacleX = -1;
 	int obstacleY = -1;
 
-	public Planet(int size) {
-		this.size = size;
+	public Planet(int i) {
+		size = i;
 	}
 
 	public void setObstacle(int x, int y) {
-		this.obstacleX = x;
-		this.obstacleY = y;
+		obstacleX = x;
+		obstacleY = y;
 	}
 
 	public static Planet big() {
@@ -23,8 +23,18 @@ public class Planet {
 		return obstacleX != x || obstacleY != y;
 	}
 
-	int computePositionKnowingPlanetIsRound(int i) {
+	int wrapSincePlanetIsRound(int i) {
 		return Math.floorMod(i, size);
+	}
+
+	public Position at(int x, int y) {
+		int nextX = wrapSincePlanetIsRound(x);
+		int nextY = wrapSincePlanetIsRound(y);
+		boolean ok = isPositionAvailable(nextX, nextY);
+		if(!ok) {
+			throw new ImpossibleMoveException();
+		}
+		return new Position(nextX, nextY);	
 	}
 
 }

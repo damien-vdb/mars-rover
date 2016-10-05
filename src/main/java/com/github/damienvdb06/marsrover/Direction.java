@@ -8,8 +8,8 @@ public enum Direction {
 	NORTH {
 
 		@Override
-		public void forward(Position position) {
-			position.setY(position.y - 1);
+		public Position forward(Planet planet, Position position) {
+			return planet.at(position.x, position.y - 1);
 		}
 
 		@Override
@@ -21,8 +21,8 @@ public enum Direction {
 	SOUTH {
 		
 		@Override
-		public void forward(Position position) {
-			position.setY(position.y + 1);
+		public Position forward(Planet planet, Position position) {
+			return planet.at(position.x, position.y + 1);
 		}
 
 		@Override
@@ -34,8 +34,8 @@ public enum Direction {
 	EAST {
 		
 		@Override
-		public void forward(Position position) {
-			position.setX(position.x + 1);
+		public Position forward(Planet planet, Position position) {
+			return planet.at(position.x + 1, position.y);
 		}
 
 		@Override
@@ -47,8 +47,8 @@ public enum Direction {
 	WEST {
 
 		@Override
-		public void forward(Position position) {
-			position.setX(position.x - 1);
+		public Position forward(Planet planet, Position position) {
+			return planet.at(position.x - 1, position.y);
 		}
 
 		@Override
@@ -66,10 +66,10 @@ public enum Direction {
 		return opposites.get(this);
 	}
 
-	public abstract void forward(Position position);
+	public abstract Position forward(Planet planet, Position position);
 
-	public void backward(Position position) {
-		this.opposite().forward(position);
+	public Position backward(Planet planet, Position position) {
+		return this.opposite().forward(planet, position);
 	}
 
 	public abstract Direction left();

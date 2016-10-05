@@ -15,6 +15,7 @@ public class RoverWrappingEarthTest {
 
 	@Test
 	public void going_over_east_maximum_edge_should_be_west_edge() {
+		
 		Rover sut = new Rover(new Planet(10), 0, 5, Direction.EAST);
 		sut.backward();
 		assertEquals(9, sut.position.x);
